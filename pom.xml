@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.example</groupId>
+	<artifactId>feature-toggle</artifactId>
+	<version>2.1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	
+	<properties>
+		<!-- Plugin Dependency Version -->
+		<maven.invoker.version>2.2</maven.invoker.version>
+
+		<revision>2.1.0-SNAPSHOT</revision>
+		<opentracing-api.version>0.31.0</opentracing-api.version>
+		<java.version>1.8</java.version>
+	    <maven.compiler.target>1.8</maven.compiler.target>
+	    <maven.compiler.source>1.8</maven.compiler.source>
+	</properties> 
+	
+	<modules>
+		<module>feature-toggle-core</module>
+		<module>feature-toggle-web</module>
+	</modules>
+	
+	<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <!-- Import dependency management from Spring Boot -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-dependencies</artifactId>
+            <version>2.2.0.RELEASE</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    	</dependencies>
+	</dependencyManagement>
+	
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<optional>true</optional>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins> 
+			<!-- Unit Test Execution --> 
+			<plugin> 
+				<groupId>org.apache.maven.plugins</groupId> 
+				<artifactId>maven-surefire-plugin</artifactId> 
+			</plugin> 
+			<!-- Test Coverage Analysis --> 
+			<plugin> 
+				<groupId>org.jacoco</groupId> 
+				<artifactId>jacoco-maven-plugin</artifactId> 
+			</plugin> 
+		</plugins>
+	</build>
+	
+</project>
