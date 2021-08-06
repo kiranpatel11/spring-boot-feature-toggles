@@ -1,6 +1,6 @@
 # This workflow will build a package using maven and then publish it to GitHub packages when a release is created
 
-name: Gradle Package
+name: Maven Build
 
 on:
   push:
